@@ -1,4 +1,9 @@
 from flask import Flask
+import sys
+
+sys.path.append("./modules")
+
+import vsearch
 
 # create an instance of a Flask object
 # and asign it to "app".
@@ -16,5 +21,9 @@ app = Flask(__name__)
 
 # This is just a regular Python function
 # which, when invoked, returns a string to its caller (note the -> str annotation)
-def hello() -> str:
+def home() -> str:
   return "Hello, World!"
+
+@app.route("/search4")
+def search4() -> str:
+  return str(vsearch.search4leters(phrase = "life, the universe, and everything", letters = "eiru"))
