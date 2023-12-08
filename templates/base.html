@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>
+    <!--
+      This is a Jinja2 directive,
+      which indicates that a value will be provided prior to rendering
+      (think of this as an argument to the template)
+    -->
+    {{ the_title }}
+  </title>
+  <!--
+    This stylesheet defines the look and feel of all the web pages.
+  -->
+  <link rel="stylesheet" href="static/hf.css">
+</head>
+<body>
+  { % block body % }
+    <!--
+      These Jinja2 directives indicate that a block of HTML will br substituted here prior to rendering,
+      and is to be provided by any page that inherits from this one
+    -->
+  { % endblock% }
+</body>
+</html>
