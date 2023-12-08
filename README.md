@@ -19,6 +19,8 @@ pip3 install flask
 - Run flask app
 ```bash
 flask run
+# or
+python3 -m flask run
 ```
 
 - Access http://127.0.0.1:5000/
