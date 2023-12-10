@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 import sys
 
 sys.path.append("./modules")
@@ -30,4 +30,6 @@ def home() -> "html":
 
 @app.route("/search4", methods = ["POST"])
 def search4() -> str:
-  return str(vsearch.search4leters(phrase = "life, the universe, and everything", letters = "eiru"))
+  phrase = request.form["phrase"]
+  letters = request.form["letters"]
+  return str(vsearch.search4leters(phrase = phrase, letters = letters))
