@@ -17,7 +17,9 @@ app = Flask(__name__)
 
 def log_request(request, response: str = "") -> None:
   with open("app.log", "a") as file:
-    print("request:", request, file = file)
+    print("request.form:", request.form, file = file)
+    print("request.remote_addr:", request.remote_addr, file = file)
+    print("request.user_agent:", request.user_agent, file = file)
     print("response:", response, file = file)
 
 # Here's the function decorator,
