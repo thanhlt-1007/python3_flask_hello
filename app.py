@@ -28,6 +28,6 @@ def root() -> str:
 def home() -> "html":
   return render_template("home.html", the_title = "Welcome to search4letters on the web!")
 
-@app.route("/search4")
+@app.route("/search4", methods = ["POST"])
 def search4() -> str:
   return str(vsearch.search4leters(phrase = "life, the universe, and everything", letters = "eiru"))
