@@ -14,6 +14,11 @@ import vsearch
 # so it must be passed as an argument, which is whay we've used it here (even though its usage does look strange).
 app = Flask(__name__)
 
+def log_request(request, response: str = "") -> None:
+  with open("app.log", "a") as file:
+    print("request:", request, file = file)
+    print("response:", response, file = file)
+
 # Here's the function decorator,
 # which-like all decorators-is prefixed with the @ symbol.
 # "/" This is the URL
@@ -28,6 +33,7 @@ def search4() -> "html":
   letters = request.form["letters"]
   title = "Here are your results:"
   results = vsearch.search4leters(phrase = phrase, letters = letters)
+  log_request(request = request, response = results)
   return render_template("search4.html",
                          the_phrase = phrase,
                          the_letters = letters,
