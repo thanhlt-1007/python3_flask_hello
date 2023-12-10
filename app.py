@@ -29,7 +29,13 @@ def home() -> "html":
   return render_template("home.html", the_title = "Welcome to search4letters on the web!")
 
 @app.route("/search4", methods = ["POST"])
-def search4() -> str:
+def search4() -> "html":
   phrase = request.form["phrase"]
   letters = request.form["letters"]
-  return str(vsearch.search4leters(phrase = phrase, letters = letters))
+  title = "Here are your results:"
+  results = vsearch.search4leters(phrase = phrase, letters = letters)
+  return render_template("search4.html",
+                         the_phrase = phrase,
+                         the_letters = letters,
+                         the_title = title,
+                         the_results = str(results))
