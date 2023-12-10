@@ -39,3 +39,9 @@ def search4() -> "html":
                          the_letters = letters,
                          the_title = title,
                          the_results = str(results))
+
+@app.route("/logs")
+def logs() -> str:
+  with open("app.log") as logs:
+    contents = logs.read()
+  return contents
