@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 import sys
 
 sys.path.append("./modules")
@@ -21,8 +21,8 @@ app = Flask(__name__)
 
 # This is just a regular Python function
 # which, when invoked, returns a string to its caller (note the -> str annotation)
-def root() -> str:
-  return "Hello, World!"
+def root() -> "302":
+  return redirect("/home")
 
 @app.route("/home")
 def home() -> "html":
