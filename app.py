@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request
 import sys
+from markupsafe import escape
 
 sys.path.append("./modules")
 
@@ -43,5 +44,5 @@ def search4() -> "html":
 @app.route("/logs")
 def logs() -> str:
   with open("app.log") as logs:
-    contents = logs.read()
+    contents = escape(logs.read())
   return contents
