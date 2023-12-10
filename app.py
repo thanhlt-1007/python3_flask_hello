@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request
 import sys
 
 sys.path.append("./modules")
@@ -18,12 +18,6 @@ app = Flask(__name__)
 # which-like all decorators-is prefixed with the @ symbol.
 # "/" This is the URL
 @app.route("/")
-
-# This is just a regular Python function
-# which, when invoked, returns a string to its caller (note the -> str annotation)
-def root() -> "302":
-  return redirect("/home")
-
 @app.route("/home")
 def home() -> "html":
   return render_template("home.html", the_title = "Welcome to search4letters on the web!")
