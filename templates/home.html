@@ -2,8 +2,8 @@
   This template inherits from the base,
   and provide a replacement for the block called "body".
 -->
-{ % extends 'base.html' % }
-{ % block body % }
+{% extends "base.html" %}
+{% block body %}
 
 <h2>
   {{ the_title }}
@@ -41,4 +41,4 @@
   </p>
 </form>
 
-{ % endblock %}
+{% endblock %}
